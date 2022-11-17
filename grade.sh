@@ -7,7 +7,7 @@ git clone $1 student-submission
 
 cd student-submission
 
-if [[ -f ListExamples.java ]]
+if [[ ! -f ListExamples.java ]]
 then
   echo "You are missing ListExamples.java"
   echo "Fail"
@@ -15,9 +15,9 @@ then
 
 fi
 
-cp TestListExamples student-submission/
 
-javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java
-java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples
+cp ../TestListExamples.java .
 
-grep test > score.txt
+
+javac -cp ".;../lib/hamcrest-core-1.3.jar;../lib/junit-4.13.2.jar" *.java
+java -cp ".;../lib/junit-4.13.2.jar;../lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples
